@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator | Fusion Gym</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700;800&family=Barlow+Condensed:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader" class="loader"><div class="loader-inner"><span class="loader-text">FUSION<span>GYM</span></span><div class="loader-bar"><div class="loader-fill"></div></div></div></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  <button class="dark-toggle" id="darkToggle"><i class="fas fa-moon" id="darkIcon"></i></button>
+  <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><i class="fas fa-dumbbell"></i>FUSION<span>GYM</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#membership" class="nav-link">Plans</a></li>
+        <li><a href="index.html#trainers" class="nav-link">Trainers</a></li>
+        <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="bmi.html" class="nav-link nav-page active-nav">BMI</a></li>
+        <li><a href="tracker.html" class="nav-link nav-page">Tracker</a></li>
+        <li><a href="joinus.html" class="nav-link nav-cta">Join Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul class="mobile-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#membership">Plans</a></li>
+      <li><a href="index.html#trainers">Trainers</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="bmi.html">BMI Calculator</a></li>
+      <li><a href="tracker.html">Progress Tracker</a></li>
+      <li><a href="joinus.html" class="mobile-cta">Join Now →</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div>
+          <div class="page-breadcrumb"><a href="index.html">Home</a> / BMI Calculator</div>
+          <div class="section-label">SMART TOOLS</div>
+          <h1 class="section-h2">BMI <span class="red">Calculator</span></h1>
+          <p>Know your numbers. Understand your body. Start making real progress.</p>
+        </div>
+        <div class="page-hero-icon"><i class="fas fa-heartbeat"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="section">
+    <div class="container">
+      <div class="bmi-layout">
+
+        <!-- LEFT: Calculator -->
+        <div class="reveal">
+          <div class="tool-card">
+            <h3 style="font-family:var(--fd);font-size:1.5rem;letter-spacing:1px;margin-bottom:1.5rem;">
+              <i class="fas fa-calculator" style="color:var(--red);margin-right:8px;"></i>Calculate Your BMI
+            </h3>
+
+            <!-- Unit toggle -->
+            <div style="display:flex;gap:0.6rem;margin-bottom:1.5rem;">
+              <button class="unit-btn active" id="btnMetric" onclick="setUnit('metric')">Metric (kg/cm)</button>
+              <button class="unit-btn" id="btnImperial" onclick="setUnit('imperial')">Imperial (lb/in)</button>
+            </div>
+
+            <div class="bmi-fields">
+              <div class="bmi-field">
+                <label id="heightLabel">Height</label>
+                <div class="bmi-wrap">
+                  <input type="number" id="heightInput" placeholder="175" min="50" max="300">
+                  <span class="bmi-unit" id="heightUnit">cm</span>
+                </div>
+              </div>
+              <div class="bmi-field">
+                <label id="weightLabel">Weight</label>
+                <div class="bmi-wrap">
+                  <input type="number" id="weightInput" placeholder="72" min="10" max="600">
+                  <span class="bmi-unit" id="weightUnit">kg</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Age & Gender (optional, for advice) -->
+            <div class="bmi-fields">
+              <div class="bmi-field">
+                <label>Age <span style="color:#aaa;font-size:0.7rem;">(optional)</span></label>
+                <div class="bmi-wrap">
+                  <input type="number" id="ageInput" placeholder="25" min="5" max="120">
+                  <span class="bmi-unit">yrs</span>
+                </div>
+              </div>
+              <div class="bmi-field">
+                <label>Gender <span style="color:#aaa;font-size:0.7rem;">(optional)</span></label>
+                <div class="bmi-wrap" style="padding:0 0.5rem;">
+                  <select id="genderSelect" style="flex:1;background:transparent;border:none;outline:none;font-family:var(--fb);font-size:0.95rem;padding:0.85rem 0.5rem;color:var(--text);">
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="bmi-err" id="bmiErr"></div>
+            <button class="btn-red full-w" id="calcBmi" style="margin-top:0.5rem;">
+              <i class="fas fa-heartbeat"></i> Calculate BMI
+            </button>
+
+            <!-- Result -->
+            <div class="bmi-result-box" id="bmiResult">
+              <div class="bmi-big-num" id="bmiNum">--</div>
+              <div class="bmi-cat-label" id="bmiCat">---</div>
+              <div class="bmi-scale">
+                <div class="bmi-bar-track">
+                  <div class="bmi-pin" id="bmiPin" style="left:0%"></div>
+                </div>
+                <div class="bmi-scale-labels">
+                  <span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span>
+                </div>
+              </div>
+              <p class="bmi-advice-text" id="bmiAdvice"></p>
+              <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--light-gray);">
+                <a href="joinus.html" class="btn-red full-w">
+                  <i class="fas fa-dumbbell"></i> Get a Personalized Plan
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Info panel -->
+        <div class="bmi-info-panel reveal">
+          <h3>Understanding <span class="red">BMI</span></h3>
+          <p style="color:var(--text-light);margin:0.8rem 0 1.5rem;font-size:0.95rem;line-height:1.7;">Body Mass Index (BMI) is calculated using your height and weight. It gives a quick snapshot of whether you're in a healthy weight range for your height.</p>
+
+          <div class="bmi-ranges">
+            <div class="bmi-rng u"><div class="bmi-dot2"></div><div><strong>Under 18.5</strong><small>Underweight — may need more nutrition</small></div></div>
+            <div class="bmi-rng n"><div class="bmi-dot2"></div><div><strong>18.5 – 24.9</strong><small>Normal weight — healthy range</small></div></div>
+            <div class="bmi-rng o"><div class="bmi-dot2"></div><div><strong>25.0 – 29.9</strong><small>Overweight — lifestyle changes help</small></div></div>
+            <div class="bmi-rng ob"><div class="bmi-dot2"></div><div><strong>30.0 and above</strong><small>Obese — professional guidance recommended</small></div></div>
+          </div>
+
+          <p class="bmi-note">BMI is a screening tool, not a diagnosis. Muscle mass, bone density, and distribution of fat are not captured. Our trainers provide a complete fitness assessment for a full picture.</p>
+
+          <!-- Quick links -->
+          <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.8rem;">
+            <a href="tracker.html" class="btn-ghost-dark"><i class="fas fa-chart-line"></i> Track Your Weight Over Time</a>
+            <a href="joinus.html" class="btn-red"><i class="fas fa-arrow-right"></i> Start Your Transformation</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FAQ Cards -->
+      <div style="margin-top:4rem;">
+        <div class="section-label center reveal">COMMON QUESTIONS</div>
+        <h2 class="section-h2 center reveal">BMI <span class="red">FAQ</span></h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;" class="faq-grid">
+          <div class="tool-card reveal">
+            <div style="color:var(--red);font-size:1.5rem;margin-bottom:0.8rem;"><i class="fas fa-question-circle"></i></div>
+            <h4 style="font-family:var(--fc);letter-spacing:1px;margin-bottom:0.6rem;">Is BMI accurate for athletes?</h4>
+            <p style="font-size:0.88rem;color:var(--text-light);line-height:1.7;">Not always. Athletes with high muscle mass may show a higher BMI while still being very healthy. A body composition test is better for athletes.</p>
+          </div>
+          <div class="tool-card reveal">
+            <div style="color:var(--red);font-size:1.5rem;margin-bottom:0.8rem;"><i class="fas fa-weight"></i></div>
+            <h4 style="font-family:var(--fc);letter-spacing:1px;margin-bottom:0.6rem;">How often should I check BMI?</h4>
+            <p style="font-size:0.88rem;color:var(--text-light);line-height:1.7;">Once every 2–4 weeks is enough. BMI changes slowly. For day-to-day tracking, use our Weight Tracker to monitor trends.</p>
+          </div>
+          <div class="tool-card reveal">
+            <div style="color:var(--red);font-size:1.5rem;margin-bottom:0.8rem;"><i class="fas fa-running"></i></div>
+            <h4 style="font-family:var(--fc);letter-spacing:1px;margin-bottom:0.6rem;">How do I improve my BMI?</h4>
+            <p style="font-size:0.88rem;color:var(--text-light);line-height:1.7;">A combination of consistent exercise and a balanced diet is most effective. Our trainers build personalised plans to help you reach your ideal range.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand"><div class="footer-logo"><i class="fas fa-dumbbell"></i> FUSION<span>GYM</span></div><p>Elite coaching, smart tools & a community that pushes limits.</p></div>
+        <div class="footer-links-col"><h4>Navigate</h4><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#membership">Plans</a></li><li><a href="index.html#trainers">Trainers</a></li><li><a href="index.html#gallery">Gallery</a></li></ul></div>
+        <div class="footer-links-col"><h4>Tools</h4><ul><li><a href="bmi.html">BMI Calculator</a></li><li><a href="tracker.html">Progress Tracker</a></li><li><a href="joinus.html">Join Us</a></li></ul></div>
+        <div class="footer-links-col"><h4>Contact</h4><ul><li>123 Power Street</li><li>+1 (555) 123-4567</li><li>hello@fusiongym.com</li><li>Open 24/7</li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 FUSION GYM · All rights reserved · Built with <i class="fas fa-heart red"></i> for real results.</p></div>
+    </div>
+  </footer>
+
+  <style>
+    .unit-btn { padding:0.45rem 1.1rem; border-radius:4px; font-family:var(--fc); font-size:0.8rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; background:transparent; border:1px solid var(--light-gray); color:var(--text-light); cursor:pointer; transition:var(--tr); }
+    .unit-btn.active { background:var(--red); border-color:var(--red); color:#fff; }
+    .faq-grid { grid-template-columns:repeat(3,1fr); }
+    @media(max-width:900px){ .faq-grid { grid-template-columns:1fr; } }
+  </style>
+
+  <script src="script.js"></script>
+  <script>
+    let currentUnit = 'metric';
+    function setUnit(unit) {
+      currentUnit = unit;
+      document.getElementById('btnMetric').classList.toggle('active', unit === 'metric');
+      document.getElementById('btnImperial').classList.toggle('active', unit === 'imperial');
+      document.getElementById('heightLabel').textContent = 'Height';
+      document.getElementById('weightLabel').textContent = 'Weight';
+      document.getElementById('heightUnit').textContent = unit === 'metric' ? 'cm' : 'in';
+      document.getElementById('weightUnit').textContent = unit === 'metric' ? 'kg' : 'lb';
+      document.getElementById('heightInput').placeholder = unit === 'metric' ? '175' : '69';
+      document.getElementById('weightInput').placeholder = unit === 'metric' ? '72' : '159';
+      document.getElementById('bmiResult').style.display = 'none';
+    }
+
+    document.getElementById('calcBmi').addEventListener('click', () => {
+      let h = parseFloat(document.getElementById('heightInput').value);
+      let w = parseFloat(document.getElementById('weightInput').value);
+      const err = document.getElementById('bmiErr');
+
+      if (isNaN(h) || isNaN(w) || h <= 0 || w <= 0) {
+        err.textContent = 'Please enter valid height and weight values.'; return;
+      }
+      err.textContent = '';
+
+      // Convert imperial to metric
+      if (currentUnit === 'imperial') { h = h * 2.54; w = w * 0.453592; }
+
+      const bmi = w / ((h / 100) ** 2);
+      const val = bmi.toFixed(1);
+      document.getElementById('bmiNum').textContent = val;
+
+      let cat, advice, pct, pinPos;
+      if (bmi < 18.5) {
+        cat = 'Underweight'; pct = (bmi / 18.5) * 25;
+        advice = 'Consider increasing caloric intake with nutrient-rich foods. Our trainers can build a muscle-gain plan for you.';
+      } else if (bmi < 25) {
+        cat = 'Normal Weight ✓'; pct = 25 + ((bmi - 18.5) / 6.5) * 25;
+        advice = 'Great shape! Focus on maintaining and optimising with strength training and cardio.';
+      } else if (bmi < 30) {
+        cat = 'Overweight'; pct = 50 + ((bmi - 25) / 5) * 25;
+        advice = 'Our HIIT classes and nutrition coaching are great starting points for healthy weight management.';
+      } else {
+        cat = 'Obese ⚠️'; pct = Math.min(95, 75 + ((bmi - 30) / 10) * 20);
+        advice = 'Our coaches are experienced in helping people at all starting points. Safe, consistent progress beats everything.';
+      }
+
+      document.getElementById('bmiCat').textContent = cat;
+      document.getElementById('bmiAdvice').textContent = advice;
+      document.getElementById('bmiPin').style.left = Math.min(97, Math.max(3, pct)) + '%';
+      const resultBox = document.getElementById('bmiResult');
+      resultBox.style.display = 'block';
+      resultBox.style.animation = 'none';
+      requestAnimationFrame(() => { resultBox.style.animation = 'fadeUp 0.5s ease'; });
+    });
+
+    ['heightInput','weightInput'].forEach(id => {
+      document.getElementById(id)?.addEventListener('keydown', e => { if(e.key==='Enter') document.getElementById('calcBmi').click(); });
+    });
+  </script>
+</body>
+</html>

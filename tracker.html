@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Tracker | Fusion Gym</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700;800&family=Barlow+Condensed:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader" class="loader"><div class="loader-inner"><span class="loader-text">FUSION<span>GYM</span></span><div class="loader-bar"><div class="loader-fill"></div></div></div></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  <button class="dark-toggle" id="darkToggle"><i class="fas fa-moon" id="darkIcon"></i></button>
+  <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><i class="fas fa-dumbbell"></i>FUSION<span>GYM</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#membership" class="nav-link">Plans</a></li>
+        <li><a href="index.html#trainers" class="nav-link">Trainers</a></li>
+        <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="bmi.html" class="nav-link nav-page">BMI</a></li>
+        <li><a href="tracker.html" class="nav-link nav-page active-nav">Tracker</a></li>
+        <li><a href="joinus.html" class="nav-link nav-cta">Join Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul class="mobile-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#membership">Plans</a></li>
+      <li><a href="index.html#trainers">Trainers</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="bmi.html">BMI Calculator</a></li>
+      <li><a href="tracker.html">Progress Tracker</a></li>
+      <li><a href="joinus.html" class="mobile-cta">Join Now →</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div>
+          <div class="page-breadcrumb"><a href="index.html">Home</a> / Progress Tracker</div>
+          <div class="section-label">SMART TOOLS</div>
+          <h1 class="section-h2">Progress <span class="red">Tracker</span></h1>
+          <p>Log your weight, visualise your trend, and stay accountable to your goals.</p>
+        </div>
+        <div class="page-hero-icon"><i class="fas fa-chart-line"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <!-- STATS SUMMARY ROW -->
+      <div id="summaryRow" style="display:none;margin-bottom:2rem;">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;" class="summary-grid">
+          <div class="tool-card" style="text-align:center;padding:1.5rem;">
+            <div style="font-size:0.72rem;font-family:var(--fc);letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:0.4rem;">Start Weight</div>
+            <div style="font-family:var(--fd);font-size:2rem;color:var(--red);" id="sumStart">--</div>
+            <div style="font-size:0.78rem;color:var(--text-light);">kg</div>
+          </div>
+          <div class="tool-card" style="text-align:center;padding:1.5rem;">
+            <div style="font-size:0.72rem;font-family:var(--fc);letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:0.4rem;">Current Weight</div>
+            <div style="font-family:var(--fd);font-size:2rem;color:var(--red);" id="sumCurrent">--</div>
+            <div style="font-size:0.78rem;color:var(--text-light);">kg</div>
+          </div>
+          <div class="tool-card" style="text-align:center;padding:1.5rem;">
+            <div style="font-size:0.72rem;font-family:var(--fc);letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:0.4rem;">Total Change</div>
+            <div style="font-family:var(--fd);font-size:2rem;" id="sumChange">--</div>
+            <div style="font-size:0.78rem;color:var(--text-light);">kg</div>
+          </div>
+          <div class="tool-card" style="text-align:center;padding:1.5rem;">
+            <div style="font-size:0.72rem;font-family:var(--fc);letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:0.4rem;">Entries</div>
+            <div style="font-family:var(--fd);font-size:2rem;color:var(--red);" id="sumCount">0</div>
+            <div style="font-size:0.78rem;color:var(--text-light);">logged</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tracker-layout">
+        <!-- LEFT: Input + Progress -->
+        <div class="reveal">
+          <div class="tool-card">
+            <h3 style="font-family:var(--fd);font-size:1.4rem;letter-spacing:1px;margin-bottom:1.5rem;">
+              <i class="fas fa-plus-circle" style="color:var(--red);margin-right:8px;"></i>Log Weight Entry
+            </h3>
+            <div class="tf-group">
+              <label>Date</label>
+              <input type="date" id="tDate" class="t-input">
+            </div>
+            <div class="tf-group">
+              <label>Weight (kg)</label>
+              <input type="number" id="tWeight" placeholder="e.g. 75.5" step="0.1" class="t-input">
+            </div>
+            <div class="tf-group">
+              <label>Note <span style="color:#aaa;font-size:0.7rem;">(optional)</span></label>
+              <input type="text" id="tNote" placeholder="e.g. After gym session" class="t-input">
+            </div>
+            <button class="btn-red full-w" id="addEntry" style="margin-bottom:1.5rem;">
+              <i class="fas fa-plus"></i> Add Entry
+            </button>
+
+            <!-- Progress Bar -->
+            <div style="padding-top:1.5rem;border-top:1px solid var(--light-gray);">
+              <div class="pv-head">
+                <span id="pvTitle">Progress</span>
+                <span class="pv-pct" id="pvPct">0%</span>
+              </div>
+              <div class="pv-bg"><div class="pv-fill" id="pvFill"></div></div>
+              <p class="pv-status" id="pvStatus">Add your first entry to start tracking.</p>
+            </div>
+          </div>
+
+          <!-- Tips -->
+          <div class="tracker-tips" style="margin-top:1.5rem;">
+            <div class="tool-card">
+              <h4 class="section-label" style="margin-bottom:1rem;">Tracking Tips</h4>
+              <div class="tip-item"><i class="fas fa-sun"></i><span>Weigh yourself in the morning, before eating</span></div>
+              <div class="tip-item"><i class="fas fa-calendar-check"></i><span>Aim to log at the same time each day</span></div>
+              <div class="tip-item"><i class="fas fa-wave-square"></i><span>Weekly averages matter more than daily swings</span></div>
+              <div class="tip-item"><i class="fas fa-water"></i><span>Stay hydrated — water weight fluctuates</span></div>
+              <div style="margin-top:1.2rem;">
+                <a href="bmi.html" class="btn-ghost-dark full-w" style="display:flex;"><i class="fas fa-heartbeat"></i> Check BMI Calculator</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Chart + History -->
+        <div class="reveal">
+          <div class="tool-card">
+            <h3 style="font-family:var(--fd);font-size:1.4rem;letter-spacing:1px;margin-bottom:1.2rem;">
+              <i class="fas fa-chart-area" style="color:var(--red);margin-right:8px;"></i>Weight Trend
+            </h3>
+            <div class="chart-wrap">
+              <div class="chart-empty" id="chartEmpty">
+                <i class="fas fa-chart-line"></i>
+                <p>No data yet — add entries to see your chart</p>
+              </div>
+              <canvas id="weightCanvas" style="display:none;"></canvas>
+            </div>
+
+            <div style="padding-top:1.5rem;border-top:1px solid var(--light-gray);margin-top:1rem;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+                <h3 style="font-family:var(--fd);font-size:1.2rem;letter-spacing:1px;">
+                  <i class="fas fa-history" style="color:var(--red);margin-right:8px;"></i>History
+                </h3>
+                <button class="clear-btn" id="clearEntries" style="display:none;width:auto;padding:0.35rem 0.8rem;">
+                  <i class="fas fa-trash"></i> Clear All
+                </button>
+              </div>
+              <ul class="history-list" id="histList">
+                <li style="color:var(--text-light);font-size:0.85rem;text-align:center;padding:1rem;">No entries yet.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA bottom -->
+      <div class="cta-strip reveal" style="margin-top:3rem;">
+        <div class="cta-strip-text">
+          <h3>Want Expert Guidance?</h3>
+          <p>Our coaches help you set realistic goals and stay on track every step of the way.</p>
+        </div>
+        <div class="cta-strip-actions">
+          <a href="bmi.html" class="btn-ghost-dark"><i class="fas fa-heartbeat"></i> Check BMI</a>
+          <a href="joinus.html" class="btn-red">Join Fusion Gym <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand"><div class="footer-logo"><i class="fas fa-dumbbell"></i> FUSION<span>GYM</span></div><p>Elite coaching, smart tools & a community that pushes limits.</p></div>
+        <div class="footer-links-col"><h4>Navigate</h4><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#membership">Plans</a></li><li><a href="index.html#trainers">Trainers</a></li><li><a href="index.html#gallery">Gallery</a></li></ul></div>
+        <div class="footer-links-col"><h4>Tools</h4><ul><li><a href="bmi.html">BMI Calculator</a></li><li><a href="tracker.html">Progress Tracker</a></li><li><a href="joinus.html">Join Us</a></li></ul></div>
+        <div class="footer-links-col"><h4>Contact</h4><ul><li>123 Power Street</li><li>+1 (555) 123-4567</li><li>hello@fusiongym.com</li><li>Open 24/7</li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 FUSION GYM · All rights reserved · Built with <i class="fas fa-heart red"></i> for real results.</p></div>
+    </div>
+  </footer>
+
+  <style>
+    .summary-grid { grid-template-columns:repeat(4,1fr); }
+    @media(max-width:900px){ .summary-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:500px){ .summary-grid { grid-template-columns:1fr 1fr; } }
+  </style>
+
+  <script src="script.js"></script>
+  <script>
+    let entries = [];
+    try { entries = JSON.parse(localStorage.getItem('fgEntries') || '[]'); } catch { entries = []; }
+
+    const tDate = document.getElementById('tDate');
+    if (tDate) tDate.value = new Date().toISOString().split('T')[0];
+
+    function saveEntries() { localStorage.setItem('fgEntries', JSON.stringify(entries)); render(); }
+
+    function formatDate(s) {
+      const d = new Date(s + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+    }
+
+    function render() {
+      const histList = document.getElementById('histList');
+      const pvFill = document.getElementById('pvFill');
+      const pvStatus = document.getElementById('pvStatus');
+      const pvPct = document.getElementById('pvPct');
+      const pvTitle = document.getElementById('pvTitle');
+      const chartEmpty = document.getElementById('chartEmpty');
+      const canvas = document.getElementById('weightCanvas');
+      const clearBtn = document.getElementById('clearEntries');
+      const summaryRow = document.getElementById('summaryRow');
+
+      histList.innerHTML = '';
+
+      if (entries.length === 0) {
+        pvFill.style.width = '0%'; pvPct.textContent = '0%';
+        pvStatus.textContent = 'Add your first entry to start tracking.';
+        pvTitle.textContent = 'Progress';
+        chartEmpty.style.display = 'flex'; canvas.style.display = 'none';
+        clearBtn.style.display = 'none'; summaryRow.style.display = 'none';
+        histList.innerHTML = '<li style="color:var(--text-light);font-size:0.85rem;text-align:center;padding:1rem;">No entries yet.</li>';
+        return;
+      }
+
+      entries.sort((a, b) => new Date(a.date) - new Date(b.date));
+      summaryRow.style.display = 'block';
+
+      // Summary stats
+      const first = entries[0].weight, latest = entries[entries.length - 1].weight;
+      const change = (latest - first).toFixed(1);
+      document.getElementById('sumStart').textContent = first;
+      document.getElementById('sumCurrent').textContent = latest;
+      const sumChangeEl = document.getElementById('sumChange');
+      sumChangeEl.textContent = (change > 0 ? '+' : '') + change;
+      sumChangeEl.style.color = change < 0 ? '#22c55e' : change > 0 ? '#f59e0b' : 'var(--text-light)';
+      document.getElementById('sumCount').textContent = entries.length;
+
+      // History list
+      [...entries].reverse().forEach((entry, i) => {
+        const li = document.createElement('li');
+        li.className = 'history-li';
+        li.innerHTML = `
+          <span class="e-date">${formatDate(entry.date)}${entry.note ? ' · <em style="color:#aaa;">' + entry.note + '</em>' : ''}</span>
+          <span class="e-wt">${entry.weight} kg</span>
+          <span class="e-del" data-idx="${entries.length - 1 - i}" title="Remove"><i class="fas fa-times"></i></span>
+        `;
+        histList.appendChild(li);
+      });
+
+      histList.querySelectorAll('.e-del').forEach(btn => {
+        btn.addEventListener('click', () => {
+          entries.splice(parseInt(btn.dataset.idx), 1);
+          saveEntries();
+        });
+      });
+
+      clearBtn.style.display = 'flex';
+
+      // Progress bar
+      let pct = 0, statusText = '', titleText = '';
+      if (first > latest) {
+        const lost = first - latest;
+        pct = Math.min(100, Math.round((lost / 30) * 100));
+        statusText = `🎉 You've lost ${lost.toFixed(1)} kg from your start weight. Keep going!`;
+        titleText = 'Weight Loss Progress';
+      } else if (latest > first) {
+        const gained = latest - first;
+        pct = Math.min(100, Math.round((gained / 20) * 100));
+        statusText = `💪 Gained ${gained.toFixed(1)} kg from start — great for muscle building!`;
+        titleText = 'Muscle Gain Progress';
+      } else {
+        pct = 0; statusText = 'Maintaining weight — consistency is key!'; titleText = 'Progress';
+      }
+      pvFill.style.width = pct + '%'; pvPct.textContent = pct + '%';
+      pvStatus.textContent = statusText; pvTitle.textContent = titleText;
+
+      // Draw chart
+      drawChart(entries, canvas, chartEmpty);
+    }
+
+    function drawChart(data, canvas, empty) {
+      if (data.length < 2) { empty.style.display = 'flex'; canvas.style.display = 'none'; return; }
+      empty.style.display = 'none'; canvas.style.display = 'block';
+      const W = canvas.parentElement.clientWidth || 500;
+      canvas.width = W; canvas.height = 200;
+      const H = canvas.height;
+      const pad = { top:20, right:20, bottom:32, left:48 };
+      const weights = data.map(d => d.weight);
+      const minW = Math.min(...weights) - 1, maxW = Math.max(...weights) + 1;
+      const range = maxW - minW || 1;
+      const ctx = canvas.getContext('2d');
+      const toX = i => pad.left + (i / (data.length - 1)) * (W - pad.left - pad.right);
+      const toY = w => H - pad.bottom - ((w - minW) / range) * (H - pad.top - pad.bottom);
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(128,128,128,0.1)'; ctx.lineWidth = 1;
+      for (let i = 0; i <= 4; i++) {
+        const y = pad.top + (i / 4) * (H - pad.top - pad.bottom);
+        ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
+        ctx.fillStyle = '#888'; ctx.font = '10px Barlow,sans-serif'; ctx.textAlign = 'right';
+        ctx.fillText((maxW - (i / 4) * range).toFixed(1), pad.left - 6, y + 3);
+      }
+
+      // X labels
+      ctx.textAlign = 'center'; ctx.fillStyle = '#888'; ctx.font = '9px Barlow Condensed,sans-serif';
+      const step = Math.max(1, Math.floor(data.length / 6));
+      data.forEach((d, i) => {
+        if (i % step === 0 || i === data.length - 1) {
+          const x = toX(i), date = new Date(d.date + 'T00:00:00');
+          ctx.fillText(date.toLocaleDateString('en-US',{month:'short',day:'numeric'}), x, H - pad.bottom + 14);
+        }
+      });
+
+      // Gradient fill
+      const grad = ctx.createLinearGradient(0, pad.top, 0, H - pad.bottom);
+      grad.addColorStop(0, 'rgba(230,57,70,0.25)'); grad.addColorStop(1, 'rgba(230,57,70,0)');
+      ctx.beginPath();
+      data.forEach((d, i) => { i === 0 ? ctx.moveTo(toX(i), toY(d.weight)) : ctx.lineTo(toX(i), toY(d.weight)); });
+      ctx.lineTo(toX(data.length - 1), H - pad.bottom); ctx.lineTo(toX(0), H - pad.bottom);
+      ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+
+      // Line
+      ctx.beginPath(); ctx.strokeStyle = '#e63946'; ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+      data.forEach((d, i) => { i === 0 ? ctx.moveTo(toX(i), toY(d.weight)) : ctx.lineTo(toX(i), toY(d.weight)); });
+      ctx.stroke();
+
+      // Dots
+      data.forEach((d, i) => {
+        ctx.beginPath(); ctx.arc(toX(i), toY(d.weight), 4, 0, Math.PI * 2);
+        ctx.fillStyle = '#e63946'; ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.stroke();
+      });
+    }
+
+    document.getElementById('addEntry').addEventListener('click', () => {
+      const date = document.getElementById('tDate').value || new Date().toISOString().split('T')[0];
+      const weight = parseFloat(document.getElementById('tWeight').value);
+      const note = document.getElementById('tNote').value.trim();
+      if (isNaN(weight) || weight <= 0 || weight > 500) {
+        const inp = document.getElementById('tWeight');
+        inp.style.borderColor = 'var(--red)';
+        setTimeout(() => inp.style.borderColor = '', 2000); return;
+      }
+      entries.push({ date, weight, note });
+      saveEntries();
+      document.getElementById('tWeight').value = '';
+      document.getElementById('tNote').value = '';
+      document.getElementById('tDate').value = new Date().toISOString().split('T')[0];
+      const btn = document.getElementById('addEntry');
+      btn.innerHTML = '<i class="fas fa-check"></i> Added!';
+      btn.style.background = '#22c55e';
+      setTimeout(() => { btn.innerHTML = '<i class="fas fa-plus"></i> Add Entry'; btn.style.background = ''; }, 1500);
+    });
+
+    document.getElementById('clearEntries').addEventListener('click', () => {
+      if (confirm('Clear all weight entries? This cannot be undone.')) { entries = []; saveEntries(); }
+    });
+
+    window.addEventListener('resize', () => {
+      if (entries.length >= 2) drawChart(entries, document.getElementById('weightCanvas'), document.getElementById('chartEmpty'));
+    });
+
+    render();
+  </script>
+</body>
+</html>

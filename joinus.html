@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Fusion Gym | Start Your Transformation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700;800&family=Barlow+Condensed:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader" class="loader"><div class="loader-inner"><span class="loader-text">FUSION<span>GYM</span></span><div class="loader-bar"><div class="loader-fill"></div></div></div></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  <button class="dark-toggle" id="darkToggle"><i class="fas fa-moon" id="darkIcon"></i></button>
+  <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><i class="fas fa-dumbbell"></i>FUSION<span>GYM</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#membership" class="nav-link">Plans</a></li>
+        <li><a href="index.html#trainers" class="nav-link">Trainers</a></li>
+        <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="bmi.html" class="nav-link nav-page">BMI</a></li>
+        <li><a href="tracker.html" class="nav-link nav-page">Tracker</a></li>
+        <li><a href="joinus.html" class="nav-link nav-cta active-nav">Join Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul class="mobile-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#membership">Plans</a></li>
+      <li><a href="index.html#trainers">Trainers</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="bmi.html">BMI Calculator</a></li>
+      <li><a href="tracker.html">Progress Tracker</a></li>
+      <li><a href="joinus.html" class="mobile-cta">Join Now →</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div>
+          <div class="page-breadcrumb"><a href="index.html">Home</a> / Join Us</div>
+          <div class="section-label">GET STARTED</div>
+          <h1 class="section-h2">Join <span class="red">Fusion</span><br>Today.</h1>
+          <p>Fill the form and our team will reach out within 24 hours to kickstart your transformation.</p>
+        </div>
+        <div class="page-hero-icon"><i class="fas fa-dumbbell"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <!-- Plan chips (shown if URL has ?plan=) -->
+      <div id="planBanner" style="display:none;margin-bottom:2rem;padding:1rem 1.5rem;background:rgba(230,57,70,0.08);border:1px solid rgba(230,57,70,0.25);border-radius:var(--r);display:flex;align-items:center;gap:0.8rem;">
+        <i class="fas fa-check-circle" style="color:var(--red);font-size:1.2rem;"></i>
+        <span style="font-family:var(--fc);letter-spacing:1px;font-weight:700;" id="planBannerText">Plan selected</span>
+        <a href="index.html#membership" style="margin-left:auto;font-size:0.8rem;color:var(--text-light);text-decoration:none;">Change plan →</a>
+      </div>
+
+      <div class="join-layout">
+
+        <!-- LEFT: Info -->
+        <div class="reveal">
+          <div class="info-card">
+            <h4>Contact Details</h4>
+            <div class="cd-row"><i class="fas fa-map-marker-alt"></i><span>123 Power Street, Fitness District</span></div>
+            <div class="cd-row"><i class="fas fa-phone"></i><span>+1 (555) 123-4567</span></div>
+            <div class="cd-row"><i class="fas fa-envelope"></i><span>hello@fusiongym.com</span></div>
+            <div class="cd-row"><i class="fas fa-clock"></i><span>Open 24/7, 365 days</span></div>
+            <div class="social-row">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <!-- Plan summary -->
+          <div class="info-card" style="margin-top:1rem;">
+            <h4>Choose Your Plan</h4>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;">
+              <label class="plan-radio">
+                <input type="radio" name="planChoice" value="basic" id="rBasic">
+                <span class="plan-radio-label">
+                  <span class="plan-radio-name">BASIC</span>
+                  <span class="plan-radio-price">$29/mo</span>
+                </span>
+              </label>
+              <label class="plan-radio">
+                <input type="radio" name="planChoice" value="standard" id="rStandard">
+                <span class="plan-radio-label" style="border-color:var(--red);">
+                  <span class="plan-radio-name">STANDARD <span style="font-size:0.65rem;color:var(--red);"> POPULAR</span></span>
+                  <span class="plan-radio-price">$49/mo</span>
+                </span>
+              </label>
+              <label class="plan-radio">
+                <input type="radio" name="planChoice" value="premium" id="rPremium">
+                <span class="plan-radio-label">
+                  <span class="plan-radio-name">PREMIUM</span>
+                  <span class="plan-radio-price">$79/mo</span>
+                </span>
+              </label>
+            </div>
+            <p style="font-size:0.78rem;color:var(--text-light);margin-top:1rem;">No commitment. Cancel anytime. <a href="index.html#membership" style="color:var(--red);text-decoration:none;">Compare plans →</a></p>
+          </div>
+
+          <!-- Why Join -->
+          <div class="info-card" style="margin-top:1rem;">
+            <h4>Why Fusion Gym?</h4>
+            <div class="tip-item"><i class="fas fa-check"></i><span>No joining fee in your first month</span></div>
+            <div class="tip-item"><i class="fas fa-check"></i><span>Free fitness assessment on day 1</span></div>
+            <div class="tip-item"><i class="fas fa-check"></i><span>Cancel or change plan anytime</span></div>
+            <div class="tip-item"><i class="fas fa-check"></i><span>Access BMI & Progress tools free</span></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="reveal">
+          <form class="cf-form" id="joinForm" novalidate>
+            <div style="font-family:var(--fd);font-size:1.5rem;letter-spacing:1px;margin-bottom:1.5rem;">
+              Send Your Request
+            </div>
+            <div class="cf-row">
+              <div class="cf-field">
+                <input type="text" id="cfName" placeholder="Full Name" autocomplete="name">
+                <div class="cf-err" id="cfNameErr"></div>
+              </div>
+              <div class="cf-field">
+                <input type="email" id="cfEmail" placeholder="Email Address" autocomplete="email">
+                <div class="cf-err" id="cfEmailErr"></div>
+              </div>
+            </div>
+            <div class="cf-row">
+              <div class="cf-field">
+                <input type="tel" id="cfPhone" placeholder="Phone Number" autocomplete="tel">
+                <div class="cf-err" id="cfPhoneErr"></div>
+              </div>
+              <div class="cf-field">
+                <input type="text" id="cfCity" placeholder="City / Location">
+              </div>
+            </div>
+            <div class="cf-row">
+              <div class="cf-field">
+                <select id="cfGoal">
+                  <option value="">Your primary goal…</option>
+                  <option value="weightloss">Weight Loss</option>
+                  <option value="musclegain">Muscle Gain</option>
+                  <option value="endurance">Endurance / Cardio</option>
+                  <option value="wellness">General Wellness</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="cf-field">
+                <select id="cfExperience">
+                  <option value="">Experience level…</option>
+                  <option value="beginner">Beginner (0–1 year)</option>
+                  <option value="intermediate">Intermediate (1–3 years)</option>
+                  <option value="advanced">Advanced (3+ years)</option>
+                </select>
+              </div>
+            </div>
+            <div class="cf-field full">
+              <textarea id="cfMessage" placeholder="Tell us about your goals, any injuries, or questions…" rows="4"></textarea>
+            </div>
+            <!-- Hidden plan input synced with radio buttons -->
+            <input type="hidden" id="cfPlan" value="">
+            <button type="submit" class="btn-red full-w">
+              Send My Request <i class="fas fa-paper-plane"></i>
+            </button>
+            <div class="cf-success" id="cfSuccess"></div>
+            <p style="font-size:0.78rem;color:var(--text-light);text-align:center;margin-top:1rem;">We respect your privacy. No spam, ever.</p>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- PROCESS STEPS -->
+      <div style="margin-top:5rem;">
+        <div class="section-label center reveal">WHAT HAPPENS NEXT</div>
+        <h2 class="section-h2 center reveal">3 Steps to <span class="red">Getting Started</span></h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;" class="steps-grid">
+          <div class="tool-card reveal" style="text-align:center;padding:2.5rem 2rem;">
+            <div style="width:56px;height:56px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-family:var(--fd);font-size:1.5rem;color:#fff;">1</div>
+            <h4 style="font-family:var(--fc);font-size:1rem;letter-spacing:2px;margin-bottom:0.7rem;">Fill the Form</h4>
+            <p style="font-size:0.88rem;color:var(--text-light);line-height:1.7;">Tell us your goals and preferred plan. Takes less than 2 minutes.</p>
+          </div>
+          <div class="tool-card reveal" style="text-align:center;padding:2.5rem 2rem;">
+            <div style="width:56px;height:56px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-family:var(--fd);font-size:1.5rem;color:#fff;">2</div>
+            <h4 style="font-family:var(--fc);font-size:1rem;letter-spacing:2px;margin-bottom:0.7rem;">We Call You Back</h4>
+            <p style="font-size:0.88rem;color:var(--text-light);line-height:1.7;">Our team contacts you within 24 hours to answer questions and schedule your first visit.</p>
+          </div>
+          <div class="tool-card reveal" style="text-align:center;padding:2.5rem 2rem;">
+            <div style="width:56px;height:56px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-family:var(--fd);font-size:1.5rem;color:#fff;">3</div>
+            <h4 style="font-family:var(--fc);font-size:1rem;letter-spacing:2px;margin-bottom:0.7rem;">Start Training</h4>
+            <p style="font-size:0.88rem;color:var(--text-light);line-height:1.7;">Get your free fitness assessment and begin your transformation journey with expert guidance.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand"><div class="footer-logo"><i class="fas fa-dumbbell"></i> FUSION<span>GYM</span></div><p>Elite coaching, smart tools & a community that pushes limits.</p></div>
+        <div class="footer-links-col"><h4>Navigate</h4><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#membership">Plans</a></li><li><a href="index.html#trainers">Trainers</a></li><li><a href="index.html#gallery">Gallery</a></li></ul></div>
+        <div class="footer-links-col"><h4>Tools</h4><ul><li><a href="bmi.html">BMI Calculator</a></li><li><a href="tracker.html">Progress Tracker</a></li><li><a href="joinus.html">Join Us</a></li></ul></div>
+        <div class="footer-links-col"><h4>Contact</h4><ul><li>123 Power Street</li><li>+1 (555) 123-4567</li><li>hello@fusiongym.com</li><li>Open 24/7</li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 FUSION GYM · All rights reserved · Built with <i class="fas fa-heart red"></i> for real results.</p></div>
+    </div>
+  </footer>
+
+  <style>
+    .plan-radio { display:block; cursor:pointer; }
+    .plan-radio input { display:none; }
+    .plan-radio-label { display:flex; justify-content:space-between; align-items:center; padding:0.7rem 1rem; border:1.5px solid var(--light-gray); border-radius:6px; transition:var(--tr); }
+    .plan-radio:hover .plan-radio-label { border-color:var(--red); }
+    .plan-radio input:checked + .plan-radio-label { border-color:var(--red); background:rgba(230,57,70,0.06); }
+    .plan-radio-name { font-family:var(--fc); font-weight:700; letter-spacing:1px; font-size:0.9rem; }
+    .plan-radio-price { font-family:var(--fd); font-size:1.1rem; color:var(--red); }
+    .steps-grid { grid-template-columns:repeat(3,1fr); }
+    @media(max-width:900px){ .steps-grid { grid-template-columns:1fr; } }
+  </style>
+
+  <script src="script.js"></script>
+  <script>
+    // Read plan from URL query param
+    const urlPlan = new URLSearchParams(window.location.search).get('plan');
+    if (urlPlan) {
+      const radio = document.getElementById('r' + urlPlan.charAt(0).toUpperCase() + urlPlan.slice(1));
+      if (radio) { radio.checked = true; document.getElementById('cfPlan').value = urlPlan; }
+      const banner = document.getElementById('planBanner');
+      const names = { basic:'Basic Plan ($29/mo)', standard:'Standard Plan ($49/mo)', premium:'Premium Plan ($79/mo)' };
+      if (banner && names[urlPlan]) {
+        banner.style.display = 'flex';
+        document.getElementById('planBannerText').textContent = names[urlPlan] + ' selected — fill in your details below.';
+      }
+    }
+
+    // Sync radio buttons with hidden input
+    document.querySelectorAll('input[name="planChoice"]').forEach(r => {
+      r.addEventListener('change', () => { document.getElementById('cfPlan').value = r.value; });
+    });
+
+    // Form validation
+    document.getElementById('joinForm').addEventListener('submit', (e) => {
+      e.preventDefault(); let valid = true;
+      const validate = (id, errId, fn, msg) => {
+        const val = document.getElementById(id)?.value.trim();
+        const err = document.getElementById(errId);
+        if (!fn(val)) { if(err) err.textContent=msg; document.getElementById(id)?.style.setProperty('border-color','var(--red)'); valid=false; }
+        else { if(err) err.textContent=''; document.getElementById(id)?.style.removeProperty('border-color'); }
+      };
+      validate('cfName', 'cfNameErr', v => v && v.length >= 2, 'Please enter your full name.');
+      validate('cfEmail', 'cfEmailErr', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), 'Please enter a valid email.');
+      validate('cfPhone', 'cfPhoneErr', v => /^[0-9+\-\s()]{8,20}$/.test(v), 'Enter a valid phone number.');
+      if (valid) {
+        const s = document.getElementById('cfSuccess');
+        s.textContent = '✅ Request sent! Our team will contact you within 24 hours.';
+        s.style.animation = 'none'; requestAnimationFrame(() => { s.style.animation = 'fadeUp 0.5s ease'; });
+        setTimeout(() => s.textContent='', 6000);
+        document.getElementById('joinForm').reset();
+        document.querySelectorAll('input[name="planChoice"]').forEach(r => r.checked=false);
+        document.getElementById('cfPlan').value='';
+      }
+    });
+  </script>
+</body>
+</html>

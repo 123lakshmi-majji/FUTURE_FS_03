@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fusion Gym | Forge Your Best Self</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700;800;900&family=Barlow+Condensed:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader" class="loader"><div class="loader-inner"><span class="loader-text">FUSION<span>GYM</span></span><div class="loader-bar"><div class="loader-fill"></div></div></div></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  <button class="dark-toggle" id="darkToggle"><i class="fas fa-moon" id="darkIcon"></i></button>
+  <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><i class="fas fa-dumbbell"></i>FUSION<span>GYM</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#membership" class="nav-link">Plans</a></li>
+        <li><a href="#trainers" class="nav-link">Trainers</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="bmi.html" class="nav-link nav-page">BMI</a></li>
+        <li><a href="tracker.html" class="nav-link nav-page">Tracker</a></li>
+        <li><a href="joinus.html" class="nav-link nav-cta">Join Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul class="mobile-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#membership">Plans</a></li>
+      <li><a href="#trainers">Trainers</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="bmi.html">BMI Calculator</a></li>
+      <li><a href="tracker.html">Progress Tracker</a></li>
+      <li><a href="joinus.html" class="mobile-cta">Join Now →</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-fire"></i> Est. 2019 · 1500+ Members</div>
+      <h1 class="hero-title">
+        <span class="hero-line"><em>FORGE</em></span>
+        <span class="hero-line accent"><em>YOUR</em></span>
+        <span class="hero-line"><em>LIMITS</em></span>
+      </h1>
+      <p class="hero-sub">Elite coaching · Smart tracking · Real results.<br>Your transformation starts the moment you walk in.</p>
+      <div class="hero-actions">
+        <a href="joinus.html" class="btn-red">Start Today <i class="fas fa-arrow-right"></i></a>
+        <a href="#membership" class="btn-ghost">View Plans</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+    <div class="hero-stats-bar">
+      <div class="hstat"><span class="hnum">1500+</span><span class="hlbl">Members</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hnum">24</span><span class="hlbl">Elite Trainers</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hnum">128+</span><span class="hlbl">Monthly Classes</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hnum">5★</span><span class="hlbl">Google Rating</span></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap"><div class="ticker-track">
+    <span>STRENGTH TRAINING</span><span class="dot">•</span><span>HIIT CLASSES</span><span class="dot">•</span><span>PERSONAL COACHING</span><span class="dot">•</span><span>NUTRITION PLANS</span><span class="dot">•</span><span>YOGA & MOBILITY</span><span class="dot">•</span><span>24/7 ACCESS</span><span class="dot">•</span><span>BODY TRANSFORMATION</span><span class="dot">•</span>
+    <span>STRENGTH TRAINING</span><span class="dot">•</span><span>HIIT CLASSES</span><span class="dot">•</span><span>PERSONAL COACHING</span><span class="dot">•</span><span>NUTRITION PLANS</span><span class="dot">•</span><span>YOGA & MOBILITY</span><span class="dot">•</span><span>24/7 ACCESS</span><span class="dot">•</span><span>BODY TRANSFORMATION</span><span class="dot">•</span>
+  </div></div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-visual reveal-left">
+          <div class="about-img-wrap">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&h=900&fit=crop" alt="Fusion Gym" loading="lazy">
+            <div class="about-badge-float"><i class="fas fa-trophy"></i><span>#1 Gym</span><small>In the City</small></div>
+          </div>
+          <div class="about-feature-cards">
+            <div class="af-card"><i class="fas fa-clock"></i><span>24/7 Access</span></div>
+            <div class="af-card"><i class="fas fa-brain"></i><span>Smart Tracking</span></div>
+          </div>
+        </div>
+        <div class="about-content reveal-right">
+          <div class="section-label">WHO WE ARE</div>
+          <h2 class="section-h2">More Than Iron<br>& <span class="red">Sweat.</span></h2>
+          <p class="about-p">Founded by elite athletes, Fusion Gym is a data-driven fitness hub combining state-of-the-art equipment with smart tracking tools. Our certified coaches guide every step — whether you're a beginner or a seasoned pro.</p>
+          <div class="about-features">
+            <div class="about-feat"><div class="feat-icon"><i class="fas fa-dumbbell"></i></div><div><strong>World-Class Equipment</strong><p>250+ machines & free weights</p></div></div>
+            <div class="about-feat"><div class="feat-icon"><i class="fas fa-chart-line"></i></div><div><strong>Progress Analytics</strong><p>BMI calculator & weight tracker</p></div></div>
+            <div class="about-feat"><div class="feat-icon"><i class="fas fa-users"></i></div><div><strong>Community Driven</strong><p>Group classes every single day</p></div></div>
+          </div>
+          <div class="counter-row" id="counterRow">
+            <div class="ctr"><span class="counter" data-target="1542">0</span><span>+</span><small>Members</small></div>
+            <div class="ctr"><span class="counter" data-target="24">0</span><small>Trainers</small></div>
+            <div class="ctr"><span class="counter" data-target="128">0</span><span>+</span><small>Classes/mo</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSES -->
+  <section id="classes" class="classes-section">
+    <div class="container">
+      <div class="section-label center reveal">WHAT WE OFFER</div>
+      <h2 class="section-h2 center reveal">Train Like A <span class="red">Champion</span></h2>
+      <div class="classes-grid">
+        <div class="class-card reveal" style="--img:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=500&fit=crop')"><div class="class-overlay"></div><div class="class-content"><div class="class-icon"><i class="fas fa-fire-flame-curved"></i></div><h3>HIIT</h3><p>High-intensity intervals for max calorie burn</p></div></div>
+        <div class="class-card reveal" style="--img:url('boy.jpg')"><div class="class-overlay"></div><div class="class-content"><div class="class-icon"><i class="fas fa-dumbbell"></i></div><h3>STRENGTH</h3><p>Build power & muscle the right way</p></div></div>
+        <div class="class-card reveal" style="--img:url('yoga.jpg')"><div class="class-overlay"></div><div class="class-content"><div class="class-icon"><i class="fas fa-spa"></i></div><h3>YOGA</h3><p>Flexibility, breathing & mindfulness</p></div></div>
+        <div class="class-card reveal" style="--img:url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h=500&fit=crop')"><div class="class-overlay"></div><div class="class-content"><div class="class-icon"><i class="fas fa-running"></i></div><h3>CARDIO</h3><p>Endurance & stamina building circuits</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP -->
+  <section id="membership" class="section dark-section">
+    <div class="container">
+      <div class="section-label center light reveal">PRICING</div>
+      <h2 class="section-h2 center light reveal">Unlock Your <span class="red">Potential</span></h2>
+      <p class="section-sub center light reveal">No hidden fees. Cancel anytime. Results guaranteed.</p>
+      <div class="plans-grid">
+        <div class="plan-card reveal">
+          <div class="plan-top"><div class="plan-icon"><i class="fas fa-walking"></i></div><div><div class="plan-name">BASIC</div><div class="plan-tag">Starter</div></div></div>
+          <div class="plan-price">$29<span>/mo</span></div>
+          <div class="plan-divider"></div>
+          <ul class="plan-list">
+            <li class="ok"><i class="fas fa-check"></i>Gym Access (6am–10pm)</li>
+            <li class="ok"><i class="fas fa-check"></i>1 Free Class / week</li>
+            <li class="ok"><i class="fas fa-check"></i>Locker Room & Wi-Fi</li>
+            <li class="no"><i class="fas fa-times"></i>Personal Trainer</li>
+            <li class="no"><i class="fas fa-times"></i>Nutrition Guide</li>
+          </ul>
+          <a href="joinus.html?plan=basic" class="plan-btn">Get Started</a>
+        </div>
+        <div class="plan-card featured reveal">
+          <div class="featured-badge">MOST POPULAR</div>
+          <div class="plan-top"><div class="plan-icon red-icon"><i class="fas fa-fire"></i></div><div><div class="plan-name">STANDARD</div><div class="plan-tag">Best Value</div></div></div>
+          <div class="plan-price red">$49<span>/mo</span></div>
+          <div class="plan-divider red-div"></div>
+          <ul class="plan-list">
+            <li class="ok"><i class="fas fa-check"></i>24/7 Full Access</li>
+            <li class="ok"><i class="fas fa-check"></i>4 Free Classes / week</li>
+            <li class="ok"><i class="fas fa-check"></i>Nutrition Guide</li>
+            <li class="ok"><i class="fas fa-check"></i>2 PT Sessions / month</li>
+            <li class="no"><i class="fas fa-times"></i>Spa & Recovery</li>
+          </ul>
+          <a href="joinus.html?plan=standard" class="plan-btn plan-btn-red">Get Started</a>
+        </div>
+        <div class="plan-card reveal">
+          <div class="plan-top"><div class="plan-icon"><i class="fas fa-crown"></i></div><div><div class="plan-name">PREMIUM</div><div class="plan-tag">All-In</div></div></div>
+          <div class="plan-price">$79<span>/mo</span></div>
+          <div class="plan-divider"></div>
+          <ul class="plan-list">
+            <li class="ok"><i class="fas fa-check"></i>Unlimited Access + Guest Pass</li>
+            <li class="ok"><i class="fas fa-check"></i>All Classes + Spa</li>
+            <li class="ok"><i class="fas fa-check"></i>1-on-1 Coaching Weekly</li>
+            <li class="ok"><i class="fas fa-check"></i>Custom Meal Plan</li>
+            <li class="ok"><i class="fas fa-check"></i>Priority Support</li>
+          </ul>
+          <a href="joinus.html?plan=premium" class="plan-btn">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINERS -->
+  <section id="trainers" class="section">
+    <div class="container">
+      <div class="section-label center reveal">THE TEAM</div>
+      <h2 class="section-h2 center reveal">Meet Your <span class="red">Coaches</span></h2>
+      <div class="trainers-grid">
+        <div class="trainer-card reveal"><div class="trainer-img-wrap"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop" alt="Marcus Steele" loading="lazy"><div class="trainer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="trainer-info"><h3>Marcus Steele</h3><p>Strength & Conditioning</p><div class="trainer-spec"><span>Powerlifting</span><span>Sports Rehab</span></div></div></div>
+        <div class="trainer-card reveal"><div class="trainer-img-wrap"><img src="picture.jpeg" alt="Elena Cruz" loading="lazy"><div class="trainer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="trainer-info"><h3>Elena Cruz</h3><p>HIIT & Weight Loss</p><div class="trainer-spec"><span>Nutrition</span><span>Fat Loss</span></div></div></div>
+        <div class="trainer-card reveal"><div class="trainer-img-wrap"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&h=500&fit=crop" alt="Derek Wong" loading="lazy"><div class="trainer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="trainer-info"><h3>Derek Wong</h3><p>Functional & Mobility</p><div class="trainer-spec"><span>Yoga</span><span>Mobility</span></div></div></div>
+        <div class="trainer-card reveal"><div class="trainer-img-wrap"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=400&h=500&fit=crop" alt="Jake Rivers" loading="lazy"><div class="trainer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="trainer-info"><h3>Jake Rivers</h3><p>Cardio & Endurance</p><div class="trainer-spec"><span>Marathon</span><span>CrossFit</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section dark-section">
+    <div class="container">
+      <div class="section-label center light reveal">TRANSFORMATIONS</div>
+      <h2 class="section-h2 center light reveal">Real People, <span class="red">Real Results</span></h2>
+      <div class="filter-row">
+        <button class="f-btn active" data-f="all">All</button>
+        <button class="f-btn" data-f="weightloss">Weight Loss</button>
+        <button class="f-btn" data-f="muscle">Muscle Gain</button>
+      </div>
+      <div class="gallery-grid">
+        <div class="g-item reveal" data-cat="weightloss"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&h=400&fit=crop" alt="Transformation" loading="lazy"><div class="g-overlay"><div class="g-tag">Weight Loss</div><div class="g-result">🔥 −12 kg in 8 weeks</div></div></div>
+        <div class="g-item reveal" data-cat="muscle"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&h=400&fit=crop" alt="Muscle gain" loading="lazy"><div class="g-overlay"><div class="g-tag">Muscle Gain</div><div class="g-result">💪 +5 kg muscle mass</div></div></div>
+        <div class="g-item reveal" data-cat="weightloss"><img src="https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?w=500&h=400&fit=crop" alt="Fat loss" loading="lazy"><div class="g-overlay"><div class="g-tag">Weight Loss</div><div class="g-result">🏆 22% body fat lost</div></div></div>
+        <div class="g-item reveal" data-cat="muscle"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&h=400&fit=crop" alt="Strength" loading="lazy"><div class="g-overlay"><div class="g-tag">Muscle Gain</div><div class="g-result">⚡ Strength transformation</div></div></div>
+        <div class="g-item reveal" data-cat="weightloss"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=400&fit=crop" alt="Body transformation" loading="lazy"><div class="g-overlay"><div class="g-tag">Weight Loss</div><div class="g-result">🎯 −18 kg total loss</div></div></div>
+        <div class="g-item reveal" data-cat="muscle"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=500&h=400&fit=crop" alt="Athletic build" loading="lazy"><div class="g-overlay"><div class="g-tag">Muscle Gain</div><div class="g-result">🥇 Athletic physique built</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+  <div class="container">
+    <div class="section-label center reveal">MEMBER STORIES</div>
+    <h2 class="section-h2 center reveal">What They <span class="red">Say</span></h2>
+
+    <!-- TESTIMONIAL GRID (fixed Sarah image URL) -->
+    <div class="testi-grid">
+      <!-- Sarah M. – direct Unsplash image (was broken Shutterstock link) -->
+     <div class="testi-card reveal">
+  <div class="testi-stars">★★★★★</div>
+  <p class="testi-text">"The progress tracker kept me accountable! Lost 9kg and the trainers are world-class. This gym genuinely changed my life."</p>
+  <div class="testi-author">
+    <a href="https://images.unsplash.com/photo-1494790108755-2616b612b830?w=400&h=400&fit=crop&crop=face" target="_blank" rel="noopener noreferrer">
+      <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+     alt="Sarah M."
+     onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?background=e63946&color=fff&name=SM';"
+     style="width:42px; height:42px; border-radius:50%; object-fit:cover; border:2px solid var(--red);">
+    </a>
+    <div><strong>Sarah M.</strong><small>Lost 9kg · 3 months</small></div>
+  </div>
+</div>
+      <!-- James T. (unchanged, but wrapped in <a> for consistency) -->
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Best gym atmosphere, real results. The BMI tool helped me set realistic goals and Elena's HIIT class is unmatched."</p>
+        <div class="testi-author">
+          <a href="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" alt="James T.">
+          </a>
+          <div><strong>James T.</strong><small>Muscle gain · 6 months</small></div>
+        </div>
+      </div>
+      <!-- Linda K. (unchanged, wrapped in <a>) -->
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Premium plan is worth every penny. The 1-on-1 coaching + meal plan is a cheat code for results. Highly recommend!"</p>
+        <div class="testi-author">
+          <a href="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Linda K.">
+          </a>
+          <div><strong>Linda K.</strong><small>Premium member · 1 year</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW CTA STRIP (exactly as you requested) -->
+    <div class="cta-strip reveal">
+      <div class="cta-strip-text">
+        <h3>Ready to Transform?</h3>
+        <p>Join 1500+ members already forging their best selves.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="bmi.html" class="btn-ghost-dark"><i class="fas fa-heartbeat"></i> Check BMI</a>
+        <a href="tracker.html" class="btn-ghost-dark"><i class="fas fa-chart-line"></i> Track Progress</a>
+        <a href="joinus.html" class="btn-red">Join Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand"><div class="footer-logo"><i class="fas fa-dumbbell"></i> FUSION<span>GYM</span></div><p>Elite coaching, smart tools & a community that pushes limits.</p></div>
+        <div class="footer-links-col"><h4>Navigate</h4><ul><li><a href="#about">About</a></li><li><a href="#membership">Plans</a></li><li><a href="#trainers">Trainers</a></li><li><a href="#gallery">Gallery</a></li></ul></div>
+        <div class="footer-links-col"><h4>Tools</h4><ul><li><a href="bmi.html">BMI Calculator</a></li><li><a href="tracker.html">Progress Tracker</a></li><li><a href="joinus.html">Join Us</a></li></ul></div>
+        <div class="footer-links-col"><h4>Contact</h4><ul><li>123 Power Street</li><li>+1 (555) 123-4567</li><li>hello@fusiongym.com</li><li>Open 24/7</li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 FUSION GYM · All rights reserved · Built with <i class="fas fa-heart red"></i> for real results.</p></div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
